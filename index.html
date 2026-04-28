@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI + Java后端实习 | 个人技术主页</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Microsoft YaHei", PingFang SC, sans-serif;
+        background: #f8fafc;
+        background-image:
+            radial-gradient(circle at 10% 20%, rgba(224, 231, 255, 0.3) 0%, transparent 25%),
+            radial-gradient(circle at 90% 80%, rgba(219, 234, 254, 0.3) 0%, transparent 25%);
+        color: #2d3748;
+        line-height: 1.7;
+    }
+
+    /* 浅蓝色导航栏 */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #eff6ff;
+        box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
+        z-index: 9999;
+    }
+
+    .nav-wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 36px;
+        padding: 16px 20px;
+    }
+
+    .nav-item {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        color: #1e40af;
+        transition: 0.25s ease;
+        padding: 4px 2px;
+        border-bottom: 2px solid transparent;
+    }
+
+    .nav-item.active {
+        color: #1d4ed8;
+        border-bottom: 2px solid #1d4ed8;
+    }
+
+    .nav-item:hover {
+        color: #1d4ed8;
+    }
+
+    .container {
+        max-width: 960px;
+        margin: 120px auto 60px;
+        padding: 0 22px;
+    }
+
+    .section {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 32px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
+        scroll-margin-top: 120px;
+    }
+
+    .section-title {
+        font-size: 23px;
+        border-left: 5px solid #2563eb;
+        padding-left: 14px;
+        margin-bottom: 24px;
+        color: #1e293b;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 10px 0;
+        font-size: 15px;
+        color: #475569;
+    }
+
+    ul {
+        padding-left: 24px;
+        margin: 10px 0;
+    }
+
+    li {
+        margin: 8px 0;
+        font-size: 15px;
+        color: #475569;
+    }
+
+    /* 图片布局 */
+    .img-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin: 24px 0;
+    }
+
+    .img-item {
+        border-radius: 10px;
+        overflow: hidden;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .img-item:hover {
+        transform: scale(1.02);
+    }
+
+    .img-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* 图片放大弹窗 */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 99999;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .modal img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+        box-shadow: 0 0 40px rgba(0,0,0,0.3);
+        transition: transform 0.1s ease;
+        cursor: zoom-in;
+    }
+
+    .modal.show {
+        display: flex;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- 导航 -->
+<div class="navbar">
+    <div class="nav-wrap">
+        <a href="#home" class="nav-item active">首页</a>
+        <a href="#resume" class="nav-item">个人简历</a>
+        <a href="#project" class="nav-item">项目实战</a>
+        <a href="#algorithm" class="nav-item">算法笔记</a>
+        <a href="#notes" class="nav-item">学习笔记</a>
+    </div>
+</div>
+
+<div class="container">
+
+<section id="home" class="section">
+    <h2 class="section-title">首页 | 个人介绍</h2>
+    <p>您好，我是<strong>AI + Java后端</strong>方向实习生，大二，学校无课程安排，可长期实习。</p>
+    <p>熟悉 Java 后端、高并发、MySQL、Redis、RocketMQ，具备真实项目实战经验。</p>
+    <p>本站展示：个人简历 + 项目实战 + 算法刷题 + 学习笔记，方便您快速了解我的能力。</p>
+</section>
+
+<section id="resume" class="section">
+    <h2 class="section-title">个人简历</h2>
+    <p><strong>求职意向：</strong>AI + Java后端 实习（可长期实习）</p>
+    <p><strong>电话：</strong>13650390496</p>
+    <p><strong>邮箱：</strong>3295491586@qq.com</p>
+
+    <p style="margin-top:20px;"><strong>教育经历</strong></p>
+    <p>2024.09 - 2028.07 ｜ 华南师范大学（211/双一流）｜ 软件工程 本科 大二</p>
+
+    <p style="margin-top:20px;"><strong>专业技能</strong></p>
+    <ul>
+        <li>熟练 JavaSE、集合、多线程、IO、面向对象</li>
+        <li>深入掌握 JUC、线程池、锁机制、原子类、并发容器</li>
+        <li>掌握 MySQL、SQL 优化、索引、事务、存储引擎</li>
+        <li>掌握 Redis 数据结构、分布式锁、缓存、持久化</li>
+        <li>了解 RocketMQ 生产消费、异步解耦、流量削峰</li>
+        <li>了解 JVM 内存模型、GC、类加载、基础调优</li>
+        <li>熟练 Linux 常用命令、服务部署、权限管理</li>
+        <li>熟练 Git 版本控制、分支管理、团队协作</li>
+    </ul>
+
+    <p style="margin-top:20px;"><strong>算法能力：</strong>二刷 LeetCode Hot100 + SQL50 + 经典150</p>
+    <p><strong>英语：</strong>CET-6，可熟练阅读英文技术文档</p>
+</section>
+
+<section id="project" class="section">
+    <h2 class="section-title">项目实战</h2>
+    <p><strong>1. 仿铁路12306购票系统（50% AI + 50% 手敲）</strong></p>
+    <ul>
+        <li>基于 MySQL + Redis + RocketMQ 全链路高并发优化</li>
+        <li>读写分离 + Redis 分布式锁 + 可重入锁 + 减小锁粒度提升并发</li>
+        <li>RocketMQ 事务消息 + 同步发送保证支付流程原子性</li>
+        <li>热点数据分层缓存预热，降低 DB 压力</li>
+        <li>Lua 脚本库存预扣减，防止超卖，保证数据一致</li>
+        <li>幂等校验 + 令牌桶限流，保证系统稳定</li>
+    </ul>
+
+    <div class="img-grid">
+        <div class="img-item" onclick="openImg(this)"><img src="project-12306-1.jpg"></div>
+        <div class="img-item" onclick="openImg(this)"><img src="project-12306-2.jpg"></div>
+    </div>
+
+    <p style="margin-top:30px;"><strong>2. 电商购物系统（90% AI + 10% 手敲）</strong></p>
+    <ul>
+        <li>Redis 集群（主从+哨兵/Cluster）高可用</li>
+        <li>延迟双删 + 版本号保证缓存与数据库一致</li>
+        <li>RocketMQ 消息可靠投递、幂等、死信队列处理</li>
+    </ul>
+
+    <div class="img-grid">
+        <div class="img-item" onclick="openImg(this)"><img src="project-shop-1.jpg"></div>
+        <div class="img-item" onclick="openImg(this)"><img src="project-shop-2.jpg"></div>
+    </div>
+</section>
+
+<section id="algorithm" class="section">
+    <h2 class="section-title">算法笔记</h2>
+    <p>当前进度：</p>
+    <ul>
+        <li>二刷 LeetCode Hot100</li>
+        <li>刷 SQL 50 题</li>
+        <li>同步刷 LeetCode 经典150</li>
+    </ul>
+
+    <div class="img-grid">
+        <div class="img-item" onclick="openImg(this)"><img src="algo-1.jpg"></div>
+        <div class="img-item" onclick="openImg(this)"><img src="algo-2.jpg"></div>
+    </div>
+</section>
+
+<section id="notes" class="section">
+    <h2 class="section-title">学习笔记</h2>
+    <p>学习方向：Java 后端、高并发、Redis、RocketMQ、JVM、MySQL 调优</p>
+    <ul>
+        <li>Redis 分布式锁、Lua、集群、缓存策略</li>
+        <li>RocketMQ 事务消息、消息可靠投递、死信队列</li>
+        <li>Java 并发、JUC、线程池</li>
+        <li>MySQL 索引、事务、SQL 优化</li>
+    </ul>
+
+    <div class="img-grid">
+        <div class="img-item" onclick="openImg(this)"><img src="note-1.jpg"></div>
+        <div class="img-item" onclick="openImg(this)"><img src="note-2.jpg"></div>
+    </div>
+</section>
+
+</div>
+
+<!-- 放大弹窗 -->
+<div class="modal" id="imgModal">
+    <img id="bigImg">
+</div>
+
+<script>
+// 缩放比例
+let scale = 1;
+// 最小/最大缩放限制
+const MIN_SCALE = 0.5;
+const MAX_SCALE = 3.0;
+// 每次滚轮缩放步长
+const SCALE_STEP = 0.1;
+
+const modal = document.getElementById('imgModal');
+const bigImg = document.getElementById('bigImg');
+
+// 打开图片
+function openImg(el) {
+    // 重置缩放比例
+    scale = 1;
+    bigImg.style.transform = `scale(${scale})`;
+    // 设置图片源
+    bigImg.src = el.querySelector('img').src;
+    // 显示弹窗
+    modal.classList.add('show');
+    // 阻止页面滚动
+    document.body.style.overflow = 'hidden';
+}
+
+// 关闭弹窗
+function closeModal() {
+    modal.classList.remove('show');
+    // 恢复页面滚动
+    document.body.style.overflow = 'auto';
+}
+
+// 点击弹窗关闭
+modal.addEventListener('click', closeModal);
+
+// 滚轮缩放图片
+modal.addEventListener('wheel', (e) => {
+    e.preventDefault(); // 阻止页面滚动
+    
+    // 滚轮方向：向上放大，向下缩小
+    if (e.deltaY < 0) {
+        scale = Math.min(scale + SCALE_STEP, MAX_SCALE);
+    } else {
+        scale = Math.max(scale - SCALE_STEP, MIN_SCALE);
+    }
+    
+    // 应用缩放
+    bigImg.style.transform = `scale(${scale})`;
+});
+
+// 导航高亮
+const sections = document.querySelectorAll('.section');
+const navItems = document.querySelectorAll('.nav-item');
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 150) {
+            current = section.id;
+        }
+    });
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === '#' + current) {
+            item.classList.add('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
