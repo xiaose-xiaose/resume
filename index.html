@@ -92,13 +92,28 @@
 
     ul {
         padding-left: 24px;
-        margin: 10px 0;
+        margin: 12px 0 20px;
     }
 
     li {
         margin: 8px 0;
         font-size: 15px;
         color: #475569;
+    }
+
+    /* 项目标题样式 */
+    .project-title {
+        font-size: 17px;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 8px;
+    }
+
+    /* 项目总结句样式 */
+    .project-summary {
+        color: #334155;
+        margin-bottom: 12px;
+        padding-left: 4px;
     }
 
     /* 图片布局 */
@@ -184,38 +199,42 @@
 <section id="resume" class="section">
     <h2 class="section-title">个人简历</h2>
     <p><strong>求职意向：</strong>AI + Java后端 实习（可长期实习）</p>
+    <!-- 新增姓名行，替换XXX为你的真实姓名 -->
+    <p><strong>姓名：</strong>罗焯云</p>
     <p><strong>电话：</strong>13650390496</p>
     <p><strong>邮箱：</strong>3295491586@qq.com</p>
+    <p><strong>GitHub：</strong>https://xiaose-xiaose.github.io/resume/</p>
 
     <p style="margin-top:20px;"><strong>教育经历</strong></p>
     <p>2024.09 - 2028.07 ｜ 华南师范大学（211/双一流）｜ 软件工程 本科 大二</p>
 
     <p style="margin-top:20px;"><strong>专业技能</strong></p>
     <ul>
-        <li>熟练 JavaSE、集合、多线程、IO、面向对象</li>
-        <li>深入掌握 JUC、线程池、锁机制、原子类、并发容器</li>
-        <li>掌握 MySQL、SQL 优化、索引、事务、存储引擎</li>
-        <li>掌握 Redis 数据结构、分布式锁、缓存、持久化</li>
-        <li>了解 RocketMQ 生产消费、异步解耦、流量削峰</li>
-        <li>了解 JVM 内存模型、GC、类加载、基础调优</li>
-        <li>熟练 Linux 常用命令、服务部署、权限管理</li>
-        <li>熟练 Git 版本控制、分支管理、团队协作</li>
+        <li>熟练掌握 JavaSE 核心语法、集合框架、多线程并发、IO 流及面向对象编程，具备扎实的 Java 基础编程能力</li>
+        <li>深入掌握 JUC 并发编程核心组件，熟练使用线程池、锁机制、原子类、并发容器实现高并发场景开发</li>
+        <li>掌握 MySQL 数据库基本使用，熟练编写 SQL 语句，了解索引、事务、存储引擎等核心原理</li>
+        <li>掌握 Redis 基础数据结构及常用命令，了解缓存使用、持久化机制及分布式缓存应用场景</li>
+        <li>了解 RocketMQ 消息中间件核心概念，掌握消息生产、消费基本流程，知晓异步解耦、流量削峰应用场景</li>
+        <li>了解 JVM 内存模型、垃圾回收机制、类加载机制，具备基础的 JVM 调优认知</li>
+        <li>熟练使用 Linux 常用命令，掌握基础权限配置、服务启停与日常服务器操作</li>
+        <li>熟练运用 Git 进行版本控制，掌握分支管理、提交、合并、拉取等团队协作流程</li>
     </ul>
 
-    <p style="margin-top:20px;"><strong>算法能力：</strong>二刷 LeetCode Hot100 + SQL50 + 经典150</p>
-    <p><strong>英语：</strong>CET-6，可熟练阅读英文技术文档</p>
+    <p style="margin-top:20px;"><strong>算法能力：</strong>目前二刷力扣hot100 + sql50，同步刷经典150（作品集有截图）</p>
+    <p><strong>英语：</strong>CET-6，能熟练阅读英文技术文档，经常浏览国内外论坛了解新技术变化方向</p>
 </section>
 
 <section id="project" class="section">
     <h2 class="section-title">项目实战</h2>
-    <p><strong>1. 仿铁路12306购票系统（50% AI + 50% 手敲）</strong></p>
+
+    <p class="project-title">1. 仿铁路12306购票系统（50% AI + 50% 手敲）</p>
+    <p class="project-summary">针对秒杀购票场景，围绕 MySQL+Redis+RocketMQ 做全链路高并发优化，实现高可用、高可靠的购票流程。</p>
     <ul>
-        <li>基于 MySQL + Redis + RocketMQ 全链路高并发优化</li>
-        <li>读写分离 + Redis 分布式锁 + 可重入锁 + 减小锁粒度提升并发</li>
-        <li>RocketMQ 事务消息 + 同步发送保证支付流程原子性</li>
-        <li>热点数据分层缓存预热，降低 DB 压力</li>
-        <li>Lua 脚本库存预扣减，防止超卖，保证数据一致</li>
-        <li>幂等校验 + 令牌桶限流，保证系统稳定</li>
+        <li>采用读写分离 + Redis 分布式锁控制写并发，通过可重入锁、减小锁粒度提升系统并发量。</li>
+        <li>基于 RocketMQ 异步处理支付订单，采用事务消息 + 同步发送保证支付流程原子性。</li>
+        <li>针对热门线路、站点等热点数据做分层缓存预热，大幅降低数据库查询压力，提升读请求响应速度。</li>
+        <li>采用库存预扣减 + Lua 脚本实现原子库存校验，结合未支付订单库存恢复机制，防止超卖并保证数据一致性。</li>
+        <li>实现幂等性校验与令牌桶限流，避免用户重复请求导致的重复扣减问题，保障系统稳定性。</li>
     </ul>
 
     <div class="img-grid">
@@ -223,11 +242,12 @@
         <div class="img-item" onclick="openImg(this)"><img src="project-12306-2.jpg"></div>
     </div>
 
-    <p style="margin-top:30px;"><strong>2. 电商购物系统（90% AI + 10% 手敲）</strong></p>
+    <p class="project-title" style="margin-top:30px;">2. 电商购物系统（90% AI + 10% 手敲）</p>
+    <p class="project-summary">负责项目中缓存与消息中间件的高可用及数据一致性优化，核心落地以下关键技术方案，保障系统稳定运行与数据准确：</p>
     <ul>
-        <li>Redis 集群（主从+哨兵/Cluster）高可用</li>
-        <li>延迟双删 + 版本号保证缓存与数据库一致</li>
-        <li>RocketMQ 消息可靠投递、幂等、死信队列处理</li>
+        <li>保障Redis高可用：搭建Redis集群(主从+哨兵/Cluster)，配置故障自动切换与节点监控，规避单点故障。</li>
+        <li>保证缓存与数据库一致性：采用延迟双删+版本号策略，优化缓存失效机制，提升数据可靠性。</li>
+        <li>解决RocketMQ异常：优化生产/消费配置，结合幂等处理与死信队列，实现消息全链路可靠传输。</li>
     </ul>
 
     <div class="img-grid">
